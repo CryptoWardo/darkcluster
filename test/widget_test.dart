@@ -14,4 +14,18 @@ void main() {
 
     expect(find.text('1'), findsOneWidget);
   });
+
+  testWidgets('Reinicia el contador al presionar el botón de reinicio', (tester) async {
+    await tester.pumpWidget(const DarkClusterApp());
+
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pump();
+
+    expect(find.text('1'), findsOneWidget);
+
+    await tester.tap(find.widgetWithText(ElevatedButton, 'Reiniciar contador'));
+    await tester.pump();
+
+    expect(find.text('0'), findsOneWidget);
+  });
 }
