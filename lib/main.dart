@@ -30,6 +30,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _counter = 0;
 
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -57,6 +63,12 @@ class _HomePageState extends State<HomePage> {
             const Text(
               'Construido con Flutter para demostrar un flujo básico en español.',
               textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: _resetCounter,
+              icon: const Icon(Icons.refresh),
+              label: const Text('Reiniciar contador'),
             ),
           ],
         ),
